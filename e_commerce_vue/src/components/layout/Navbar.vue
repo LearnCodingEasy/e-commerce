@@ -23,10 +23,8 @@
         <div class="flex items-center space-x-4">
           <!-- Dark Mode Toggle -->
           <Button
-            :icon="themeStore.isDarkMode ? 'pi pi-sun' : 'pi pi-moon'"
+            
             class="p-button-text p-button-rounded"
-            @click="themeStore.toggleDarkMode()"
-            v-tooltip="themeStore.isDarkMode ? 'Light Mode' : 'Dark Mode'"
           />
 
           <!-- Cart -->
@@ -106,12 +104,12 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
 import { useCartStore } from '../../stores/cart'
-import { useThemeStore } from '../../stores/theme'
+// import { useThemeStore } from '../../stores/theme'
 
 const router = useRouter()
 const authStore = useAuthStore()
 const cartStore = useCartStore()
-const themeStore = useThemeStore()
+// const themeStore = useThemeStore()
 
 const showUserMenu = ref(false)
 const showMobileMenu = ref(false)
@@ -148,7 +146,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.nav-link {
+/* .nav-link {
   @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200;
 }
 
@@ -162,5 +160,5 @@ onUnmounted(() => {
 
 .mobile-nav-link {
   @apply block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md transition-colors duration-200;
-}
+} */
 </style>

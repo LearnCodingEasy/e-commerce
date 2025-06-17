@@ -141,6 +141,10 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
+
+// Animate
+import 'animate.css';
+
 // eslint-disable-next-line vue/multi-word-component-names
 app.component("fa", FontAwesomeIcon);
 

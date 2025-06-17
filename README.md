@@ -193,7 +193,7 @@ The frontend will be available at `http://localhost:3000`
 
 ## Project Structure
 
-\`\`\`
+```
 ecommerce-platform/
 ├── frontend/
 │ ├── src/
@@ -222,7 +222,7 @@ ecommerce-platform/
 │ ├── requirements.txt
 │ └── manage.py
 └── README.md
-\`\`\`
+```
 
 ## Features in Detail
 
