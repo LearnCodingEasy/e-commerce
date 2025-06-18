@@ -3,6 +3,8 @@ import api from "./api"
 export default {
   async getProducts(params = {}) {
     const response = await api.get("/products/", { params })
+    console.log(`ser ${response.data}`);
+
     return response.data
   },
 
