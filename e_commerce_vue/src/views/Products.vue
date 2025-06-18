@@ -8,7 +8,7 @@
         class="flex flex-wrap gap-4 items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow"
       >
         <div class="flex-1 min-w-64">
-          <InputText
+          <prime_input_text
             v-model="searchQuery"
             placeholder="Search products..."
             class="w-full"
@@ -81,7 +81,7 @@
     <!-- Pagination -->
     <div v-if="totalPages > 1" class="flex justify-center mt-8">
       <div class="flex items-center space-x-2">
-        <Button
+        <prime_button
           icon="pi pi-chevron-left"
           @click="changePage(currentPage - 1)"
           :disabled="currentPage === 1"
@@ -92,7 +92,7 @@
           Page {{ currentPage }} of {{ totalPages }}
         </span>
 
-        <Button
+        <prime_button
           icon="pi pi-chevron-right"
           @click="changePage(currentPage + 1)"
           :disabled="currentPage === totalPages"

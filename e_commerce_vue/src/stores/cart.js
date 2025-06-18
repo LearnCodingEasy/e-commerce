@@ -21,6 +21,7 @@ export const useCartStore = defineStore("cart", () => {
     try {
       const response = await cartService.getCart()
       items.value = response.items || []
+      console.log(` ${response.items}`);
     } catch (error) {
       console.error("Error fetching cart:", error)
     } finally {

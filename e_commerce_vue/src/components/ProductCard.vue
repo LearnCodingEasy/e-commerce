@@ -1,5 +1,5 @@
 <template>
-  <Card class="product-card card-hover h-full animate__animated animate__fadeInUp">
+  <prime_card class="product-card card-hover h-full animate__animated animate__fadeInUp">
     <template #header>
       <div class="relative overflow-hidden">
         <img
@@ -13,8 +13,10 @@
           severity="danger"
           class="absolute top-2 right-2"
         />
-        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
-          <Button
+        <div
+          class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100"
+        >
+          <prime_button
             icon="pi pi-eye"
             class="p-button-rounded p-button-secondary"
             @click="viewProduct"
@@ -44,9 +46,7 @@
         <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">
           ${{ product.price }}
         </span>
-        <span class="text-sm text-gray-500">
-          Stock: {{ product.quantity }}
-        </span>
+        <span class="text-sm text-gray-500"> Stock: {{ product.quantity }} </span>
       </div>
 
       <Rating :modelValue="4" :readonly="true" :cancel="false" class="mb-2" />
@@ -54,14 +54,14 @@
 
     <template #footer>
       <div class="flex gap-2">
-        <Button
+        <prime_button
           label="View Details"
           icon="pi pi-eye"
           class="flex-1"
           @click="viewProduct"
           outlined
         />
-        <Button
+        <prime_button
           icon="pi pi-shopping-cart"
           @click="addToCart"
           :disabled="product.quantity === 0"
@@ -70,7 +70,7 @@
         />
       </div>
     </template>
-  </Card>
+  </prime_card>
 </template>
 
 <script setup>
@@ -86,8 +86,8 @@ const toast = useToast()
 const props = defineProps({
   product: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const loading = ref(false)
@@ -106,14 +106,15 @@ const addToCart = async () => {
       severity: 'success',
       summary: 'Added to Cart',
       detail: `${props.product.name} has been added to your cart`,
-      life: 3000
+      life: 3000,
     })
   } catch (error) {
+    console.log(` ${error}`);
     toast.add({
       severity: 'error',
       summary: 'Error',
       detail: 'Failed to add product to cart',
-      life: 3000
+      life: 3000,
     })
   } finally {
     loading.value = false

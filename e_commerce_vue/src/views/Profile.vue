@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- Profile Information -->
       <div class="lg:col-span-1">
-        <Card>
+        <prime_card>
           <template #title>
             <h3 class="text-xl font-semibold">Profile Information</h3>
           </template>
@@ -16,14 +16,19 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Name
                 </label>
-                <InputText v-model="profileForm.name" required class="w-full" />
+                <prime_input_text v-model="profileForm.name" required class="w-full" />
               </div>
 
               <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Email
                 </label>
-                <InputText v-model="profileForm.email" type="email" required class="w-full" />
+                <prime_input_text
+                  v-model="profileForm.email"
+                  type="email"
+                  required
+                  class="w-full"
+                />
               </div>
 
               <Button
@@ -34,12 +39,12 @@
               />
             </form>
           </template>
-        </Card>
+        </prime_card>
       </div>
 
       <!-- Order History -->
       <div class="lg:col-span-2">
-        <Card>
+        <prime_card>
           <template #title>
             <h3 class="text-xl font-semibold">Order History</h3>
           </template>
@@ -58,7 +63,7 @@
             </div>
 
             <div v-else class="space-y-4">
-              <Card v-for="order in orders" :key="order._id" class="border">
+              <prime_card v-for="order in orders" :key="order._id" class="border">
                 <template #content>
                   <div class="flex justify-between items-start mb-4">
                     <div>
@@ -110,10 +115,10 @@
                     />
                   </div>
                 </template>
-              </Card>
+              </prime_card>
             </div>
           </template>
-        </Card>
+        </prime_card>
       </div>
     </div>
   </div>

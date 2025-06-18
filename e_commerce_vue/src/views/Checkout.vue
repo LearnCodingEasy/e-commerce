@@ -6,7 +6,7 @@
       <!-- Checkout Form -->
       <div class="space-y-6">
         <!-- Shipping Information -->
-        <Card>
+        <prime_card>
           <template #title>
             <h3 class="text-xl font-semibold">Shipping Information</h3>
           </template>
@@ -63,10 +63,10 @@
               </div>
             </div>
           </template>
-        </Card>
+        </prime_card>
 
         <!-- Payment Information -->
-        <Card>
+        <prime_card>
           <template #title>
             <h3 class="text-xl font-semibold">Payment Information</h3>
           </template>
@@ -77,12 +77,12 @@
             </div>
             <div id="card-errors" role="alert" class="text-red-600 text-sm mt-2"></div>
           </template>
-        </Card>
+        </prime_card>
       </div>
 
       <!-- Order Summary -->
       <div>
-        <Card class="sticky top-8">
+        <prime_card class="sticky top-8">
           <template #title>
             <h3 class="text-xl font-semibold">Order Summary</h3>
           </template>
@@ -147,7 +147,7 @@
               :disabled="!isFormValid"
             />
           </template>
-        </Card>
+        </prime_card>
       </div>
     </div>
   </div>

@@ -22,14 +22,11 @@
         <!-- Right Side -->
         <div class="flex items-center space-x-4">
           <!-- Dark Mode Toggle -->
-          <Button
-            
-            class="p-button-text p-button-rounded"
-          />
+          <prime_button class="p-button-text p-button-rounded" />
 
           <!-- Cart -->
           <router-link to="/cart" class="relative">
-            <Button icon="pi pi-shopping-cart" class="p-button-text p-button-rounded" />
+            <prime_button icon="pi pi-shopping-cart" class="p-button-text p-button-rounded" />
             <Badge
               v-if="cartStore.totalItems > 0"
               :value="cartStore.totalItems"
@@ -39,7 +36,7 @@
 
           <!-- User Menu -->
           <div v-if="authStore.isAuthenticated" class="relative">
-            <Button
+            <prime_button
               :label="authStore.user?.first_name || 'User'"
               icon="pi pi-user"
               class="p-button-text"
@@ -69,7 +66,7 @@
           <!-- Login/Register -->
           <div v-else class="flex items-center space-x-2">
             <router-link to="/login">
-              <Button label="Login" class="p-button-text" />
+              <prime_button label="Login" class="p-button-text" />
             </router-link>
             <router-link to="/register">
               <Button label="Register" />
@@ -77,7 +74,7 @@
           </div>
 
           <!-- Mobile Menu Button -->
-          <Button icon="pi pi-bars" class="p-button-text md:hidden" @click="toggleMobileMenu" />
+          <prime_button icon="pi pi-bars" class="p-button-text md:hidden" @click="toggleMobileMenu" />
         </div>
       </div>
 

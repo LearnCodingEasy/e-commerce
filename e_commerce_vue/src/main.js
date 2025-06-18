@@ -8,8 +8,6 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-
-
 // --------------- PrimeVue Core Configuration ---------------
 // Import PrimeVue library configuration
 // استيراد مكتبة PrimeVue وإعداداتها الأساسية
@@ -31,6 +29,7 @@ import ToggleButton from "primevue/togglebutton";
 // عناصر النماذج
 import Fluid from "primevue/fluid";
 import InputText from "primevue/inputtext";
+
 import Textarea from "primevue/textarea";
 import Password from "primevue/password";
 import FloatLabel from "primevue/floatlabel";

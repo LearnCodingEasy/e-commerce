@@ -145,6 +145,7 @@ const updateQuantity = async (itemId, quantity) => {
       life: 2000,
     })
   } catch (error) {
+    console.log(` ${error}`)
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -164,6 +165,7 @@ const removeItem = async (itemId) => {
       life: 2000,
     })
   } catch (error) {
+    console.log(` ${error}`)
     toast.add({
       severity: 'error',
       summary: 'Error',

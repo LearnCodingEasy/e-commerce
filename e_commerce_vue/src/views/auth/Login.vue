@@ -13,48 +13,50 @@
         </p>
       </div>
 
-      <Card class="p-6 animate__animated animate__fadeInUp animate__delay-1s">
-        <form @submit.prevent="handleLogin" class="space-y-6">
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <InputText
-              id="email"
-              v-model="form.email"
-              type="email"
-              required
-              :class="{ 'p-invalid': errors.email }"
+      <prime_card class="p-6 animate__animated animate__fadeInUp animate__delay-1s">
+        <template #content>
+          <form @submit.prevent="handleLogin" class="space-y-6">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <prime_input_text
+                id="email"
+                v-model="form.email"
+                type="email"
+                required
+                :class="{ 'p-invalid': errors.email }"
+              />
+              <div v-if="errors.email" class="error">{{ errors.email }}</div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <prime_input_password
+                id="password"
+                v-model="form.password"
+                required
+                :class="{ 'p-invalid': errors.password }"
+                :feedback="false"
+                toggleMask
+              />
+              <div v-if="errors.password" class="error">{{ errors.password }}</div>
+            </div>
+
+            <prime_button
+              type="submit"
+              label="Sign In"
+              class="w-full btn-primary"
+              :loading="authStore.loading"
             />
-            <div v-if="errors.email" class="error">{{ errors.email }}</div>
+          </form>
+
+          <div
+            v-if="errors.general"
+            class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded"
+          >
+            {{ errors.general }}
           </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-            <Password
-              id="password"
-              v-model="form.password"
-              required
-              :class="{ 'p-invalid': errors.password }"
-              :feedback="false"
-              toggleMask
-            />
-            <div v-if="errors.password" class="error">{{ errors.password }}</div>
-          </div>
-
-          <Button
-            type="submit"
-            label="Sign In"
-            class="w-full btn-primary"
-            :loading="authStore.loading"
-          />
-        </form>
-
-        <div
-          v-if="errors.general"
-          class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded"
-        >
-          {{ errors.general }}
-        </div>
-      </Card>
+        </template>
+      </prime_card>
     </div>
   </div>
 </template>

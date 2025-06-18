@@ -8,6 +8,7 @@ export default {
 
   async getProduct(id) {
     const response = await api.get(`/products/${id}/`)
+    console.log(`ser ${response.data}`);
     return response.data
   },
 

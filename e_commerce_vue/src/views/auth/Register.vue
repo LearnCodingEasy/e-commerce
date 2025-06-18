@@ -13,84 +13,98 @@
         </p>
       </div>
 
-      <Card class="p-6 animate__animated animate__fadeInUp animate__delay-1s">
-        <form @submit.prevent="handleRegister" class="space-y-6">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="form-group">
-              <label for="first_name">First Name</label>
-              <InputText
-                id="first_name"
-                v-model="form.first_name"
-                required
-                :class="{ 'p-invalid': errors.first_name }"
-              />
-              <div v-if="errors.first_name" class="error">{{ errors.first_name }}</div>
+      <prime_card class="p-6 animate__animated animate__fadeInUp animate__delay-1s">
+        <template #content>
+          <form @submit.prevent="handleRegister" class="space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="form-group">
+                <label for="first_name">First Name</label>
+                <prime_input_text
+                  id="first_name"
+                  v-model="form.first_name"
+                  required
+                  :class="{ 'p-invalid': errors.first_name }"
+                />
+                <div v-if="errors.first_name" class="error">{{ errors.first_name }}</div>
+              </div>
+
+              <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <prime_input_text
+                  id="last_name"
+                  v-model="form.last_name"
+                  required
+                  :class="{ 'p-invalid': errors.last_name }"
+                />
+                <div v-if="errors.last_name" class="error">{{ errors.last_name }}</div>
+              </div>
             </div>
 
             <div class="form-group">
-              <label for="last_name">Last Name</label>
-              <InputText
-                id="last_name"
-                v-model="form.last_name"
+              <label for="email">Email Address</label>
+              <prime_input_text
+                id="email"
+                v-model="form.email"
+                type="email"
                 required
-                :class="{ 'p-invalid': errors.last_name }"
+                :class="{ 'p-invalid': errors.email }"
+                class="w-full"
               />
-              <div v-if="errors.last_name" class="error">{{ errors.last_name }}</div>
+              <div v-if="errors.email" class="error">{{ errors.email }}</div>
             </div>
-          </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <prime_input_text
+                id="username"
+                v-model="form.username"
+                required
+                :class="{ 'p-invalid': errors.username }"
+                class="w-full"
+              />
+              <div v-if="errors.username" class="error">{{ errors.username }}</div>
+            </div>
 
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <InputText
-              id="email"
-              v-model="form.email"
-              type="email"
-              required
-              :class="{ 'p-invalid': errors.email }"
+            <div class="form-group grid grid-cols-2 gap-4 justify-center items-center">
+              <label for="password">Password</label>
+              <prime_input_password
+                id="password"
+                v-model="form.password"
+                required
+                :class="{ 'p-invalid': errors.password }"
+                toggleMask
+              />
+              <div v-if="errors.password" class="error">{{ errors.password }}</div>
+            </div>
+
+            <div class="form-group">
+              <label for="password2">Confirm Password</label>
+              <prime_input_password
+                id="password2"
+                v-model="form.password2"
+                required
+                :class="{ 'p-invalid': errors.password2 }"
+                :feedback="false"
+                toggleMask
+              />
+              <div v-if="errors.password2" class="error">{{ errors.password2 }}</div>
+            </div>
+
+            <prime_button
+              type="submit"
+              label="Create Account"
+              class="w-full btn-primary"
+              :loading="authStore.loading"
             />
-            <div v-if="errors.email" class="error">{{ errors.email }}</div>
+          </form>
+
+          <div
+            v-if="errors.general"
+            class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded"
+          >
+            {{ errors.general }}
           </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-            <Password
-              id="password"
-              v-model="form.password"
-              required
-              :class="{ 'p-invalid': errors.password }"
-              toggleMask
-            />
-            <div v-if="errors.password" class="error">{{ errors.password }}</div>
-          </div>
-
-          <div class="form-group">
-            <label for="password2">Confirm Password</label>
-            <Password
-              id="password2"
-              v-model="form.password2"
-              required
-              :class="{ 'p-invalid': errors.password2 }"
-              :feedback="false"
-              toggleMask
-            />
-            <div v-if="errors.password2" class="error">{{ errors.password2 }}</div>
-          </div>
-
-          <Button
-            type="submit"
-            label="Create Account"
-            class="w-full btn-primary"
-            :loading="authStore.loading"
-          />
-        </form>
-
-        <div
-          v-if="errors.general"
-          class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded"
-        >
-          {{ errors.general }}
-        </div>
-      </Card>
+        </template>
+      </prime_card>
     </div>
   </div>
 </template>
@@ -108,6 +122,7 @@ const toast = useToast()
 const form = reactive({
   first_name: '',
   last_name: '',
+  username: '',
   email: '',
   password: '',
   password2: '',

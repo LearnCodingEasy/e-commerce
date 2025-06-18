@@ -61,7 +61,7 @@
         </div>
 
         <div class="flex space-x-4">
-          <Button
+          <prime_button
             label="Add to Cart"
             icon="pi pi-shopping-cart"
             class="flex-1"
